@@ -1,0 +1,30 @@
+@startuml
+
+    class Post {
+        +id: integer
+        +title: string
+        +content: string
+        +created_at: datetime
+        +updated_at: datetime
+        +user: User
+        +category: Category
+    }
+
+    class User {
+        +username: string
+        +password: string
+        +email: string
+        +activated: integer
+        +created_at: datetime
+        +updated_at: datetime
+    }
+
+    class Category {
+        +title: string
+        +description: string
+    }
+
+    User "1" -- "1" Post
+    Category "any" -- "0..1" Post
+
+@enduml
